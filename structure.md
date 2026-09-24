@@ -1,0 +1,13 @@
+- index.html
+- /stylesheets
+- /javascripts
+- /fonts
+- /images
+- /pages
+  - dictionary.html
+  - articles.html
+  - tests.html
+  - /articles
+    - aloe.html
+    - monstera.html
+  - /tests
