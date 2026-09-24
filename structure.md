@@ -10,4 +10,3 @@
   - /articles
     - aloe.html
     - monstera.html
-  - /tests
