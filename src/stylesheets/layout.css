@@ -21,6 +21,7 @@ html {
 body {
   font-family: 'PT Root UI', Arial, Helvetica, sans-serif;
   font-size: 17rem;
+  height: 5000px;
 }
 /* стили для статьи */
 h1,
@@ -153,6 +154,21 @@ h3 {
 .page--locked {
   overflow: hidden;
 }
+.section {
+  position: relative;
+  padding: var(--gap);
+}
+.section__head {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10rem;
+  margin-bottom: 20rem;
+  border-bottom: 1px solid var(--c-green);
+  text-transform: uppercase;
+  font-size: 14rem;
+  font-weight: 600;
+  color: var(--c-green);
+}
 .index {
   background-color: var(--c-cream);
   color: var(--c-green);
@@ -170,6 +186,19 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--gap);
+  opacity: 1;
+}
+.header--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition:
+    opacity 0.6s ease,
+    transform 1s ease-out;
+}
+.header--scrolled {
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--c-cream);
+  background-color: color-mix(in srgb, var(--c-cream) 60%, transparent);
 }
 .header__logo {
   display: flex;
@@ -218,25 +247,32 @@ h3 {
   font-size: 18rem;
   position: relative;
   transition: all 0.6s ease-out;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
 }
 .button:hover {
   color: var(--c-green);
-  background-color: var(--c-pink);
+  /* background-color: var(--c-pink); */
 }
-/* .button::before {
+.button::before {
   content: '';
+  width: 150%;
+  height: 150%;
   position: absolute;
   top: 100%;
   left: 50%;
   z-index: -1;
   border-radius: 50%;
-  background-color: var(--c-pink);
+  background-color: var(--c-cream);
   transform: translate(-50%, 0) scale(0);
   transition: transform 0.6s ease-out;
 }
 .button:hover::before {
-  transform: translate(-50%, -50%) scale(1);
-} */
+  transform: translate(-50%, -90%) scale(1);
+}
 .menu,
 .header__burger {
   display: none;
@@ -325,6 +361,7 @@ h3 {
   margin-top: 20px;
 }
 
+/* первый экран */
 .hero {
   display: flex;
   flex-direction: column;
@@ -394,4 +431,105 @@ h3 {
 .hero__scroll::after {
   content: '→';
   animation: ping 2s ease-in infinite;
+}
+.hero__badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140rem;
+  aspect-ratio: 1;
+  position: relative;
+  color: var(--c-pink);
+  text-decoration: none;
+  font-size: 24rem;
+}
+.badge__ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spin 16s linear infinite;
+}
+.badge__text {
+  font-size: 18.5rem;
+}
+
+/* раздел форма */
+.theme--pink {
+  background-color: var(--c-pink-soft);
+  border-radius: var(--radius);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+.form__grid {
+  display: flex;
+  gap: var(--gap);
+  justify-content: space-between;
+}
+.form__grid > * {
+  width: 50%;
+  padding: clamp(46px, 17vw, 180px) 0;
+}
+.form__title {
+  font-weight: 800;
+  font-size: clamp(36px, 4.8vw, 96px);
+  line-height: 1;
+  margin-bottom: 32rem;
+}
+.form__text {
+  max-width: 480rem;
+}
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28rem;
+}
+.form__field {
+  position: relative;
+  margin-bottom: 18rem;
+}
+.form__field::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--c-green);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.6s ease-out;
+}
+.form__field:focus-within::after {
+  transform: scaleX(1);
+}
+.form__input {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 10rem 0 14rem;
+  font-size: 20rem;
+  font-weight: 500;
+  border-bottom: 1px solid #5c5c66;
+  color: var(--c-green);
+}
+.form__label {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  color: #5c5c66;
+  font-size: 20rem;
+  pointer-events: none;
+  transform-origin: left top;
+  transition: transform 0.4s ease-out;
+}
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown) + .form__label {
+  /* color: var(--c-green); */
+  transform: translateY(-26rem) scale(0.64);
 }
