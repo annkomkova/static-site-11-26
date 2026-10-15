@@ -533,3 +533,49 @@ h3 {
   /* color: var(--c-green); */
   transform: translateY(-26rem) scale(0.64);
 }
+
+/* бегущие строки */
+.marquee {
+  position: relative;
+  padding: clamp(64rem, 4vw, 96rem) 0;
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+.marquee__row {
+  display: flex;
+  width: 110%;
+  margin-left: -5%;
+  overflow: hidden;
+  padding: clamp(10rem, 1.4vw, 20rem);
+  background-color: var(--c-green);
+  color: var(--c-cream);
+  transform: rotate(-2.5deg);
+}
+.marquee__row:nth-of-type(2) {
+  position: relative;
+  z-index: -1;
+  margin-top: -12rem;
+  background-color: var(--c-pink);
+  color: var(--c-green);
+  transform: rotate(1.8deg);
+}
+.marquee__track {
+  display: flex;
+  align-items: center;
+}
+.marquee__item {
+  padding: 0 0.9rem;
+  font-weight: 800;
+  font-size: clamp(32rem, 6vw, 96rem);
+  line-height: 1.1;
+}
+.marquee__item--accent {
+  color: var(--c-pink);
+}
+.marquee__row:nth-of-type(2) .marquee__item--accent {
+  color: var(--c-cream);
+}
+.marquee__flower {
+  font-size: clamp(24rem, 4vw, 64rem);
+  animation: spin 6s linear infinite;
+}
