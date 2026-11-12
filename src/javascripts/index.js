@@ -90,6 +90,7 @@ function headerScroll() {
 function moveMarquee() {
   const marquee = document.querySelector('.marquee')
   const rows = marquee.querySelectorAll('.marquee__row')
+  const tracks = marquee.querySelectorAll('.marquee__track')
 
   let position = 0
   let direction = -1

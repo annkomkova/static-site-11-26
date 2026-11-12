@@ -537,6 +537,8 @@ h3 {
 /* бегущие строки */
 .marquee {
   position: relative;
+  width: 120%;
+  margin-left: -10%;
   padding: clamp(96rem, 8vw, 128rem) 0;
   overflow: hidden;
   transition: transform 0.3s ease-out;
