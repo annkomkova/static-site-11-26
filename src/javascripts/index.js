@@ -4,6 +4,7 @@ headerScroll()
 // hoverLetters()
 moveMarquee()
 highlightWords()
+countNumbers()
 
 // анимация бургерного меню
 function burgerMenu() {
@@ -179,6 +180,41 @@ function highlightWords() {
         span.classList.add('about__word--active')
       } else {
         span.classList.remove('about__word--active')
+      }
+    })
+  })
+}
+
+//крутим счётчики на карточках
+function countNumbers() {
+  let numbers = document.querySelectorAll('.about__numbers')
+
+  numbers.forEach((number) => {
+    let target = parseInt(number.innerText)
+    let started = false
+    number.innerText = 0
+
+    window.addEventListener('scroll', () => {
+      let rect = number.getBoundingClientRect()
+      console.log(window.scrollY)
+
+      if (rect.top < window.innerHeight * 0.8 && !started) {
+        started = true
+        let current = 0
+
+        let step = Math.ceil(target / 60)
+        console.log(step)
+
+        let interval = setInterval(() => {
+          current = current + step
+
+          if (current >= target) {
+            current = target
+            clearInterval(interval)
+          }
+
+          number.innerText = current
+        }, 25)
       }
     })
   })

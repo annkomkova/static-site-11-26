@@ -602,3 +602,38 @@ h3 {
 .about__word--accent {
   color: var(--c-pink);
 }
+
+.about__list {
+  display: flex;
+  gap: var(--gap);
+  justify-content: space-between;
+  align-items: top;
+  margin-top: clamp(64px, 10vw, 160px);
+}
+.about__item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--c-green);
+  border-radius: var(--radius);
+  transition:
+    background-color 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+.about__item:hover {
+  background-color: var(--c-pink-soft);
+  transform: translateY(-8px) rotate(-1deg);
+}
+.about__number {
+  font-weight: 800;
+  font-size: clamp(56px, 7vw, 120px);
+}
+.about__title {
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: clamp(18px, 1.6vw, 24px);
+}
+.about__text {
+  opacity: 0.8;
+}
