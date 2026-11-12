@@ -21,7 +21,7 @@ html {
 body {
   font-family: 'PT Root UI', Arial, Helvetica, sans-serif;
   font-size: 17rem;
-  height: 5000px;
+  overflow-x: hidden;
 }
 /* стили для статьи */
 h1,
@@ -581,4 +581,24 @@ h3 {
 .marquee__flower {
   font-size: clamp(44rem, 20vw, 64rem);
   animation: spin 6s linear infinite;
+}
+
+/* о проекте */
+.about__lead {
+  max-width: 80%;
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: clamp(26px, 4.2vw, 68px);
+}
+.about__word {
+  opacity: 0.2;
+  transition:
+    opacity 0.4s,
+    color 0.4s;
+}
+.about__word--active {
+  opacity: 1;
+}
+.about__word--accent {
+  color: var(--c-pink);
 }

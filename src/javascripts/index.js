@@ -3,6 +3,7 @@ splitText()
 headerScroll()
 // hoverLetters()
 moveMarquee()
+highlightWords()
 
 // анимация бургерного меню
 function burgerMenu() {
@@ -144,4 +145,41 @@ function moveMarquee() {
       })
     })
   }, 16)
+}
+
+//заливка слов при скролле
+function highlightWords() {
+  let lead = document.querySelector('.about__lead')
+  let words = lead.innerText.split(' ')
+  let html = ``
+
+  words.forEach((word) => {
+    if (word.toLowerCase().includes('цветоч')) {
+      html += `<span class="about__word about__word--accent">${word}</span> `
+    } else {
+      html += `<span class="about__word">${word}</span> `
+    }
+  })
+
+  lead.innerHTML = html
+
+  let spans = lead.querySelectorAll('.about__word')
+
+  window.addEventListener('scroll', () => {
+    let rect = lead.getBoundingClientRect()
+    let progress =
+      (window.innerHeight * 0.85 - rect.top) /
+      (rect.height + window.innerHeight * 0.3)
+
+    let p = Math.max(0, progress)
+    let activeCount = Math.round(p * spans.length)
+
+    spans.forEach((span, index) => {
+      if (index < activeCount) {
+        span.classList.add('about__word--active')
+      } else {
+        span.classList.remove('about__word--active')
+      }
+    })
+  })
 }
