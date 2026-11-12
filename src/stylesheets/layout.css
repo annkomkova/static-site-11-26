@@ -537,7 +537,7 @@ h3 {
 /* бегущие строки */
 .marquee {
   position: relative;
-  padding: clamp(64rem, 4vw, 96rem) 0;
+  padding: clamp(96rem, 8vw, 128rem) 0;
   overflow: hidden;
   transition: transform 0.3s ease-out;
 }
@@ -562,12 +562,13 @@ h3 {
 .marquee__track {
   display: flex;
   align-items: center;
+  gap: 20rem;
 }
 .marquee__item {
-  padding: 0 0.9rem;
+  padding: 4rem 1rem;
   font-weight: 800;
-  font-size: clamp(32rem, 6vw, 96rem);
-  line-height: 1.1;
+  font-size: max(32rem, min(6vw, 96rem));
+  line-height: 0.9;
 }
 .marquee__item--accent {
   color: var(--c-pink);
@@ -576,6 +577,6 @@ h3 {
   color: var(--c-cream);
 }
 .marquee__flower {
-  font-size: clamp(24rem, 4vw, 64rem);
+  font-size: clamp(44rem, 20vw, 64rem);
   animation: spin 6s linear infinite;
 }
