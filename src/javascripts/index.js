@@ -6,6 +6,7 @@ moveMarquee()
 highlightWords()
 countNumbers()
 mouseMoveCard()
+showPreview()
 
 // анимация бургерного меню
 function burgerMenu() {
@@ -237,5 +238,26 @@ function mouseMoveCard() {
 
   link.addEventListener('mouseleave', () => {
     media.style.transform = ''
+  })
+}
+
+//анимация пятна-превью за движением курсора
+function showPreview() {
+  let preview = document.querySelector('.preview')
+  let items = document.querySelectorAll('.soon__item')
+  let colors = ['pink', 'liliac', 'lime', 'peach']
+
+  document.addEventListener('mousemove', (event) => {
+    preview.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`
+  })
+
+  items.forEach((item, index) => {
+    item.addEventListener('mouseenter', () => {
+      preview.className = `preview preview--active preview--${colors[index]}`
+    })
+
+    item.addEventListener('mouseleave', () => {
+      preview.classList.remove('preview--active')
+    })
   })
 }
