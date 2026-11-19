@@ -865,3 +865,77 @@ h3 {
   transform: scale(1);
   animation: spin 8s linear infinite;
 }
+
+/* стили для подвала */
+.footer {
+  overflow: hidden;
+  padding: clamp(96rem, 8vw, 128rem) var(--gap) var(--gap);
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 50% auto auto;
+  gap: var(--gap);
+}
+.footer__text {
+  font-weight: 500;
+  font-size: clamp(18px, 1.6vw, 24px);
+}
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+.footer__link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  width: fit-content;
+}
+.footer__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2rem;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s ease-out;
+}
+.footer__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.footer__up {
+  margin: 0 auto;
+  color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--c-green);
+  border-radius: 100%;
+  background-color: transparent;
+  font-size: 22rem;
+  cursor: pointer;
+  transition:
+    background-color 0.4s,
+    transform 0.4s ease-out;
+  text-decoration: none;
+}
+.footer__up:hover {
+  background-color: var(--c-green);
+  color: var(--c-peach);
+  font-weight: 500;
+}
+.footer__logo {
+  line-height: 1;
+  font-weight: 800;
+  font-family: 'Unbounded', Arial, Helvetica, sans-serif;
+  font-size: max(32px, min(10vw, 200px));
+  margin: max(16px, min(4vw, 56px)) 0;
+  margin: var(--gap) 0;
+}
