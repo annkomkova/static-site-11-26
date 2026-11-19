@@ -17,6 +17,7 @@
 }
 html {
   font-size: calc(1vw / 14.4);
+  scroll-behavior: smooth;
 }
 body {
   font-family: 'PT Root UI', Arial, Helvetica, sans-serif;
@@ -353,7 +354,7 @@ h3 {
   transition-delay: 0.42s;
 }
 .menu__index {
-  font-family: 'Unbounded';
+  font-family: 'Unbounded', Arial, Helvetica;
   font-weight: 500;
 }
 .menu__footer {
@@ -588,7 +589,8 @@ h3 {
   max-width: 80%;
   font-weight: 600;
   line-height: 1.2;
-  font-size: clamp(26px, 4.2vw, 68px);
+  font-size: clamp(26px, 4vw, 68px);
+  font-family: 'Unbounded', Arial, Helvetica;
 }
 .about__word {
   opacity: 0.2;
@@ -628,12 +630,133 @@ h3 {
 .about__number {
   font-weight: 800;
   font-size: clamp(56px, 7vw, 120px);
+  font-family: 'Unbounded', Arial, Helvetica;
 }
 .about__title {
   font-weight: 600;
   line-height: 1.2;
   font-size: clamp(18px, 1.6vw, 24px);
+  font-family: 'Unbounded', Arial, Helvetica;
 }
 .about__text {
   opacity: 0.8;
+}
+
+/* раздел статьи */
+.articles__title {
+  max-width: 80%;
+  font-weight: 800;
+  font-size: clamp(40px, 7vw, 120px);
+  font-family: 'Unbounded', Arial, Helvetica;
+  line-height: 0.9;
+}
+.card__link {
+  margin: var(--gap) 0;
+  color: inherit;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--gap);
+}
+.card__media {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  transition: transform 0.6s ease-out;
+}
+.card__art {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, var(--c-butter) 0 18%, transparent 40%),
+    radial-gradient(circle at 85% 90%, var(--c-liliac) 0 20%, transparent 50%),
+    linear-gradient(135deg, var(--c-pink)), var(--c-liliac);
+  transition: transform 1.2s ease-out;
+}
+.card__flower {
+  position: absolute;
+  z-index: 1;
+  transition: transform 1.2s ease-out;
+}
+.card__flower--one {
+  top: 14%;
+  left: 18%;
+  width: 46%;
+}
+.card__flower--two {
+  right: 10%;
+  bottom: 12%;
+  width: 30%;
+}
+.card__flower--one .flower__petals {
+  fill: var(--c-cream);
+}
+.card__flower--two .flower__petals {
+  fill: var(--c-lime);
+}
+.flower__center {
+  fill: var(--c-peach);
+}
+.card__stem {
+  position: absolute;
+  left: 41%;
+  top: 50%;
+  width: 6px;
+  height: 60%;
+  border-radius: 6px;
+  background-color: var(--c-green);
+  transform: rotate(8deg);
+  transform-origin: top;
+}
+.card__link:hover .card__art {
+  transform: scale(1.08);
+}
+.card__link:hover .card__flower--one {
+  transform: scale(1.1) rotate(60deg);
+}
+.card__link:hover .card__flower--two {
+  transform: scale(1.2) rotate(-72deg);
+}
+.card__tag {
+  position: absolute;
+  top: 20rem;
+  left: 20rem;
+  padding: 8rem 16rem;
+  background-color: var(--c-green);
+  color: var(--c-cream);
+  border-radius: var(--radius);
+  font-size: 13rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+}
+.card__title {
+  font-weight: 600;
+  font-size: clamp(26px, 3vw, 48px);
+  line-height: 1.1;
+}
+.card__text {
+  opacity: 0.8;
+  font-size: 18rem;
+}
+.card__more {
+  font-weight: 600;
+  color: var(--c-liliac);
+}
+.card__arrow {
+  display: inline-block;
+  transition: transform 0.6s ease-out;
+  padding-left: 10rem;
+}
+.card__link:hover .card__arrow {
+  transform: translateX(10rem);
+}
+.card__link:hover .card__more {
+  text-decoration: underline;
 }

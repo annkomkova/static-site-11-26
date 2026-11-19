@@ -5,6 +5,7 @@ headerScroll()
 moveMarquee()
 highlightWords()
 countNumbers()
+mouseMoveCard()
 
 // анимация бургерного меню
 function burgerMenu() {
@@ -187,7 +188,7 @@ function highlightWords() {
 
 //крутим счётчики на карточках
 function countNumbers() {
-  let numbers = document.querySelectorAll('.about__numbers')
+  let numbers = document.querySelectorAll('.about__number')
 
   numbers.forEach((number) => {
     let target = parseInt(number.innerText)
@@ -214,8 +215,27 @@ function countNumbers() {
           }
 
           number.innerText = current
-        }, 25)
+        }, 60)
       }
     })
+  })
+}
+
+// 3д движение карточки за мышкой
+function mouseMoveCard() {
+  let link = document.querySelector('.card__link')
+  let media = link.querySelector('.card__media')
+
+  link.addEventListener('mousemove', (event) => {
+    let rect = media.getBoundingClientRect()
+
+    let x = (event.clientX - rect.left) / rect.width - 0.5
+    let y = (event.clientY - rect.top) / rect.height - 0.5
+
+    media.style.transform = `perspective(1000px) rotateX(${-y * 10}deg) rotateY(${x * 10}deg)`
+  })
+
+  link.addEventListener('mouseleave', () => {
+    media.style.transform = ''
   })
 }
