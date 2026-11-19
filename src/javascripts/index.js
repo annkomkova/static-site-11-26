@@ -6,7 +6,7 @@ moveMarquee()
 highlightWords()
 countNumbers()
 mouseMoveCard()
-showPreview()
+changeTheme()
 
 // анимация бургерного меню
 function burgerMenu() {
@@ -258,6 +258,30 @@ function showPreview() {
 
     item.addEventListener('mouseleave', () => {
       preview.classList.remove('preview--active')
+    })
+  })
+}
+
+//меняем цвета секций по скроллу
+function changeTheme() {
+  let sections = document.querySelectorAll('.theme')
+
+  window.addEventListener('scroll', () => {
+    let middle = window.innerHeight / 2
+
+    sections.forEach((section) => {
+      let rect = section.getBoundingClientRect()
+
+      if (rect.top < middle && rect.bottom > middle) {
+        document.body.classList.remove('page--dark', 'page--pink')
+
+        if (section.classList.contains('theme--pink')) {
+          document.body.classList.add('page--pink')
+        }
+        if (section.classList.contains('theme--dark')) {
+          document.body.classList.add('page--dark')
+        }
+      }
     })
   })
 }

@@ -12,6 +12,19 @@
   --gap: clamp(16px, 4vw, 56px);
   --radius: clamp(16px, 2vw, 28px);
 }
+.page {
+  --bg: var(--c-cream);
+  --main: var(--c-green);
+}
+.page--dark {
+  --bg: var(--c-green);
+  --main: var(--c-cream);
+}
+.page--pink {
+  --bg: var(--c-pink);
+  --main: var(--c-green);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -164,17 +177,20 @@ h3 {
   justify-content: space-between;
   padding-bottom: 10rem;
   margin-bottom: 20rem;
-  border-bottom: 1px solid var(--c-green);
+  border-bottom: 1px solid var(--main);
   text-transform: uppercase;
   font-size: 14rem;
   font-weight: 600;
-  color: var(--c-green);
+  color: var(--main);
 }
 .index {
-  background-color: var(--c-cream);
-  color: var(--c-green);
+  background-color: var(--bg);
+  color: var(--main);
   line-height: 1.5;
   font-family: 'Manrope', 'PT Root UI', Arial, Helvetica, sans-serif;
+  transition:
+    background-color 0.8s ease-out,
+    color 0.8s ease-out;
 }
 .header {
   position: fixed;
@@ -452,11 +468,11 @@ h3 {
 }
 .badge__text {
   font-size: 18.5rem;
+  fill: var(--main);
 }
 
 /* раздел форма */
 .theme--pink {
-  background-color: var(--c-pink-soft);
   border-radius: var(--radius);
 }
 .form {
@@ -617,7 +633,7 @@ h3 {
   flex-direction: column;
   gap: 12px;
   padding: 24px;
-  border: 1px solid var(--c-green);
+  border: 1px solid var(--main);
   border-radius: var(--radius);
   transition:
     background-color 0.6s ease-out,
@@ -625,6 +641,7 @@ h3 {
 }
 .about__item:hover {
   background-color: var(--c-pink-soft);
+  color: var(--c-green);
   transform: translateY(-8px) rotate(-1deg);
 }
 .about__number {
@@ -770,10 +787,10 @@ h3 {
   align-items: center;
   gap: 24rem;
   padding: clamp(24px, 3vw, 44px) 0;
-  border-top: 1px solid var(--c-green);
+  border-top: 1px solid var(--main);
 }
 .soon__item:last-child {
-  border-bottom: 1px solid var(--c-green);
+  border-bottom: 1px solid var(--main);
 }
 .soon__index {
   opacity: 0.8;
@@ -916,7 +933,7 @@ h3 {
   align-items: center;
   width: 64px;
   height: 64px;
-  border: 2px solid var(--c-green);
+  border: 2px solid var(--main);
   border-radius: 100%;
   background-color: transparent;
   font-size: 22rem;
@@ -927,8 +944,8 @@ h3 {
   text-decoration: none;
 }
 .footer__up:hover {
-  background-color: var(--c-green);
-  color: var(--c-peach);
+  background-color: var(--main);
+  color: var(--c-pink);
   font-weight: 500;
 }
 .footer__logo {
