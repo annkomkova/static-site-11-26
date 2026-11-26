@@ -1,0 +1,43 @@
+.C_marquee__row {
+  display: flex;
+  width: 110%;
+  margin-left: -5%;
+  overflow: hidden;
+  padding: clamp(10rem, 1.4vw, 20rem);
+  background-color: var(--c-green);
+  color: var(--c-cream);
+  transform: rotate(-2.5deg);
+}
+.C_marquee__row:nth-of-type(2) {
+  position: relative;
+  z-index: -1;
+  margin-top: -12rem;
+  background-color: var(--c-pink);
+  color: var(--c-green);
+  transform: rotate(1.8deg);
+}
+
+.C_about__list {
+  display: flex;
+  gap: var(--gap);
+  justify-content: space-between;
+  align-items: top;
+  margin-top: clamp(64px, 10vw, 160px);
+}
+.C_card__art {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, var(--c-butter) 0 18%, transparent 40%),
+    radial-gradient(circle at 85% 90%, var(--c-liliac) 0 20%, transparent 50%),
+    linear-gradient(135deg, var(--c-pink)), var(--c-liliac);
+  transition: transform 1.2s ease-out;
+}
+.C_articles__soon {
+  margin: var(--gap);
+}
+.C_footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}

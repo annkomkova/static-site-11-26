@@ -1,0 +1,17 @@
+.W_form__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28rem;
+}
+.W_card__media {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  transition: transform 0.6s ease-out;
+}
+.W_footer__top {
+  display: grid;
+  grid-template-columns: 50% auto auto;
+  gap: var(--gap);
+}

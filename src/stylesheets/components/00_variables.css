@@ -1,0 +1,47 @@
+:root {
+  --c-cream: #f7f1ef;
+  --c-green: #1e3a2b;
+  --c-pink: #ffc2d1;
+  --c-liliac: #b9a6f2;
+  --c-pink-soft: #ffc1d1;
+  --c-butter: #ffd66b;
+  --c-lime: #c9e265;
+  --c-peach: #ffc98b;
+
+  --gap: clamp(16px, 4vw, 56px);
+  --radius: clamp(16px, 2vw, 28px);
+}
+.page {
+  --bg: var(--c-cream);
+  --main: var(--c-green);
+}
+.page--dark {
+  --bg: var(--c-green);
+  --main: var(--c-cream);
+}
+.page--pink {
+  --bg: var(--c-pink);
+  --main: var(--c-green);
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: calc(1vw / 14.4);
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'PT Root UI', Arial, Helvetica, sans-serif;
+  font-size: 17rem;
+  overflow-x: hidden;
+}
+/* стили для статьи */
+h1,
+h2,
+h3 {
+  font-weight: 500;
+}
+.page--locked {
+  overflow: hidden;
+}

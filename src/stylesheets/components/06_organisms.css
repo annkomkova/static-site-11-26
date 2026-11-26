@@ -1,0 +1,115 @@
+.O_section {
+  position: relative;
+  padding: var(--gap);
+}
+.O_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 82rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gap);
+  opacity: 1;
+}
+.O_header--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition:
+    opacity 0.6s ease,
+    transform 1s ease-out;
+}
+.O_header--scrolled {
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--c-cream);
+  background-color: color-mix(in srgb, var(--bg) 60%, transparent);
+}
+.O_menu {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px var(--gap) var(--gap);
+  background-color: var(--c-pink);
+  color: var(--c-green);
+  clip-path: circle(0 at calc(100% - var(--gap)) - 24px) 40px;
+  visibility: hidden;
+  transition: clip-path 0.9s ease-in-out;
+  inset: 0;
+}
+.O_menu--open {
+  clip-path: circle(150% at calc(100% - var(--gap)) - 24px) 40px;
+  visibility: visible;
+  transition: all 0.9s ease-in-out;
+}
+.O_menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* первый экран */
+.O_hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 100rem var(--gap) var(--gap);
+  overflow: hidden;
+}
+
+/* раздел форма */
+.O_theme--pink {
+  border-radius: var(--radius);
+}
+.O_form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+.O_form__grid {
+  display: flex;
+  gap: var(--gap);
+  justify-content: space-between;
+}
+.O_form__grid > * {
+  width: 50%;
+  padding: clamp(46px, 17vw, 180px) 0;
+}
+
+/* бегущие строки */
+.O_marquee {
+  position: relative;
+  width: 120%;
+  margin-left: -10%;
+  padding: clamp(96rem, 8vw, 128rem) 0;
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+
+/* о проекте */
+
+.O_card__link {
+  margin: var(--gap) 0;
+  color: inherit;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--gap);
+}
+
+.O_card__link:hover .C_card__art {
+  transform: scale(1.08);
+}
+
+/* стили для подвала */
+.O_footer {
+  overflow: hidden;
+  padding: clamp(96rem, 8vw, 128rem) var(--gap) var(--gap);
+}

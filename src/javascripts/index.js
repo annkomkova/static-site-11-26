@@ -10,23 +10,23 @@ changeTheme()
 
 // анимация бургерного меню
 function burgerMenu() {
-  let burger = document.querySelector('.header__burger')
-  let menu = document.querySelector('.menu')
-  let header = document.querySelector('.header')
+  let burger = document.querySelector('.A_header__burger')
+  let menu = document.querySelector('.O_menu')
+  let header = document.querySelector('.O_header')
   let links = document.querySelectorAll('.menu__link')
 
   burger.addEventListener('click', () => {
     burger.classList.toggle('burger--open')
-    menu.classList.toggle('menu--open')
-    header.classList.toggle('header--menu')
+    menu.classList.toggle('O_menu--open')
+    header.classList.toggle('O_header--menu')
     document.body.classList.toggle('page--locked')
   })
 
   links.forEach((link) => {
     link.addEventListener('click', () => {
       burger.classList.remove('burger--open')
-      menu.classList.remove('menu--open')
-      header.classList.remove('header--menu')
+      menu.classList.remove('O_menu--open')
+      header.classList.remove('O_header--menu')
       document.body.classList.remove('page--locked')
     })
   })
@@ -68,22 +68,22 @@ function splitText() {
 
 // анимация состояний верхенего меню, возникновение и исчезание
 function headerScroll() {
-  let header = document.querySelector('.header')
+  let header = document.querySelector('.O_header')
   let lastScroll = 0
 
   window.addEventListener('scroll', () => {
     let scroll = window.scrollY
 
     if (scroll > 20) {
-      header.classList.add('header--scrolled')
+      header.classList.add('O_header--scrolled')
     } else {
-      header.classList.remove('header--scrolled')
+      header.classList.remove('O_header--scrolled')
     }
 
     if (scroll > 160 && scroll > lastScroll) {
-      header.classList.add('header--hidden')
+      header.classList.add('O_header--hidden')
     } else {
-      header.classList.remove('header--hidden')
+      header.classList.remove('O_header--hidden')
     }
 
     lastScroll = scroll
@@ -92,9 +92,9 @@ function headerScroll() {
 
 //анимация бегущих строк
 function moveMarquee() {
-  const marquee = document.querySelector('.marquee')
-  const rows = marquee.querySelectorAll('.marquee__row')
-  const tracks = marquee.querySelectorAll('.marquee__track')
+  const marquee = document.querySelector('.O_marquee')
+  const rows = marquee.querySelectorAll('.C_marquee__row')
+  const tracks = marquee.querySelectorAll('.A_marquee__track')
 
   let position = 0
   let direction = -1
@@ -136,7 +136,7 @@ function moveMarquee() {
     }
 
     rows.forEach((row) => {
-      let tracks = row.querySelectorAll('.marquee__track')
+      let tracks = row.querySelectorAll('.A_marquee__track')
       let x = position
 
       if (row.dataset.rowReverse) {
@@ -152,21 +152,21 @@ function moveMarquee() {
 
 //заливка слов при скролле
 function highlightWords() {
-  let lead = document.querySelector('.about__lead')
+  let lead = document.querySelector('.A_about__lead')
   let words = lead.innerText.split(' ')
   let html = ``
 
   words.forEach((word) => {
     if (word.toLowerCase().includes('цветоч')) {
-      html += `<span class="about__word about__word--accent">${word}</span> `
+      html += `<span class="Q_about__word Q_about__word--accent">${word}</span> `
     } else {
-      html += `<span class="about__word">${word}</span> `
+      html += `<span class="Q_about__word">${word}</span> `
     }
   })
 
   lead.innerHTML = html
 
-  let spans = lead.querySelectorAll('.about__word')
+  let spans = lead.querySelectorAll('.Q_about__word')
 
   window.addEventListener('scroll', () => {
     let rect = lead.getBoundingClientRect()
@@ -179,9 +179,9 @@ function highlightWords() {
 
     spans.forEach((span, index) => {
       if (index < activeCount) {
-        span.classList.add('about__word--active')
+        span.classList.add('Q_about__word--active')
       } else {
-        span.classList.remove('about__word--active')
+        span.classList.remove('Q_about__word--active')
       }
     })
   })
@@ -224,8 +224,8 @@ function countNumbers() {
 
 // 3д движение карточки за мышкой
 function mouseMoveCard() {
-  let link = document.querySelector('.card__link')
-  let media = link.querySelector('.card__media')
+  let link = document.querySelector('.O_card__link')
+  let media = link.querySelector('.W_card__media')
 
   link.addEventListener('mousemove', (event) => {
     let rect = media.getBoundingClientRect()
@@ -243,8 +243,8 @@ function mouseMoveCard() {
 
 //анимация пятна-превью за движением курсора
 function showPreview() {
-  let preview = document.querySelector('.preview')
-  let items = document.querySelectorAll('.soon__item')
+  let preview = document.querySelector('.A_preview')
+  let items = document.querySelectorAll('.M_soon__item')
   let colors = ['pink', 'liliac', 'lime', 'peach']
 
   document.addEventListener('mousemove', (event) => {
@@ -253,7 +253,7 @@ function showPreview() {
 
   items.forEach((item, index) => {
     item.addEventListener('mouseenter', () => {
-      preview.className = `preview preview--active preview--${colors[index]}`
+      preview.className = `A_preview preview--active preview--${colors[index]}`
     })
 
     item.addEventListener('mouseleave', () => {
@@ -264,7 +264,7 @@ function showPreview() {
 
 //меняем цвета секций по скроллу
 function changeTheme() {
-  let sections = document.querySelectorAll('.theme')
+  let sections = document.querySelectorAll('.O_theme')
 
   window.addEventListener('scroll', () => {
     let middle = window.innerHeight / 2
@@ -275,10 +275,10 @@ function changeTheme() {
       if (rect.top < middle && rect.bottom > middle) {
         document.body.classList.remove('page--dark', 'page--pink')
 
-        if (section.classList.contains('theme--pink')) {
+        if (section.classList.contains('O_theme--pink')) {
           document.body.classList.add('page--pink')
         }
-        if (section.classList.contains('theme--dark')) {
+        if (section.classList.contains('O_theme--dark')) {
           document.body.classList.add('page--dark')
         }
       }

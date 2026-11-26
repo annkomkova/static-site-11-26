@@ -1,0 +1,179 @@
+.Q_logo__icon {
+  width: 30rem;
+  height: 30rem;
+  fill: var(--c-pink);
+  transition: transform 0.8s ease-out;
+}
+.A_header__logo:hover .Q_logo__icon {
+  transform: rotate(180deg) scale(1.1);
+}
+.Q_burger__line {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--c-green);
+  transition: transform 0.6s ease-out;
+}
+.Q_burger__line:first-child {
+  top: 18px;
+}
+.Q_burger__line:last-child {
+  top: 27px;
+}
+.burger--open .Q_burger__line:first-child {
+  transform: translateY(5px) rotate(45deg);
+}
+.burger--open .Q_burger__line:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+.Q_menu__index {
+  font-family: 'Unbounded', Arial, Helvetica;
+  font-weight: 500;
+}
+.Q_hero__line {
+  display: block;
+}
+.Q_hero__line--shift {
+  display: flex;
+  justify-content: flex-end;
+}
+.Q_hero__plant {
+  color: var(--c-pink);
+  animation: spin 10s linear infinite;
+}
+.split__item {
+  display: inline-block;
+  transition:
+    transform 0.6s ease-out,
+    color 0.3s ease-out;
+  cursor: default;
+}
+.split__item:hover {
+  transform: translateY(-20%) rotate(-6deg);
+  color: var(--c-peach);
+}
+.Q_badge__ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spin 16s linear infinite;
+}
+.Q_badge__text {
+  font-size: 18.5rem;
+  fill: var(--main);
+}
+.Q_form__input {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 10rem 0 14rem;
+  font-size: 20rem;
+  font-weight: 500;
+  border-bottom: 1px solid #5c5c66;
+  color: var(--c-green);
+}
+.Q_form__label {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  color: #5c5c66;
+  font-size: 20rem;
+  pointer-events: none;
+  transform-origin: left top;
+  transition: transform 0.4s ease-out;
+}
+.Q_form__input:focus + .Q_form__label,
+.Q_form__input:not(:placeholder-shown) + .Q_form__label {
+  /* color: var(--c-green); */
+  transform: translateY(-26rem) scale(0.64);
+}
+.Q_marquee__item {
+  padding: 4rem 1rem;
+  font-weight: 800;
+  font-size: max(32rem, min(6vw, 96rem));
+  line-height: 0.9;
+}
+.Q_marquee__item--accent {
+  color: var(--c-pink);
+}
+.Q_marquee__flower {
+  font-size: clamp(44rem, 20vw, 64rem);
+  animation: spin 6s linear infinite;
+}
+.Q_about__word {
+  opacity: 0.2;
+  transition:
+    opacity 0.4s,
+    color 0.4s;
+}
+.Q_about__word--active {
+  opacity: 1;
+}
+.Q_about__word--accent {
+  color: var(--c-pink);
+}
+.Q_flower__center {
+  fill: var(--c-peach);
+}
+.Q_card__stem {
+  position: absolute;
+  left: 41%;
+  top: 50%;
+  width: 6px;
+  height: 60%;
+  border-radius: 6px;
+  background-color: var(--c-green);
+  transform: rotate(8deg);
+  transform-origin: top;
+}
+.Q_card__arrow {
+  display: inline-block;
+  transition: transform 0.6s ease-out;
+  padding-left: 10rem;
+}
+.Q_preview__blob {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0) rotate(-40deg);
+  transition: transform 0.6s ease-out;
+}
+.Q_preview__path {
+  fill: var(--preview-color);
+  transition: fill 0.4s;
+}
+.Q_preview__emoji {
+  position: relative;
+  font-size: clamp(56px, 6vw, 96px);
+  color: var(--c-cream);
+  opacity: 0.8;
+  transform: scale(0);
+  transition: transform 0.6s ease-out;
+}
+
+.preview--lime {
+  --preview-color: var(--c-lime);
+}
+.preview--liliac {
+  --preview-color: var(--c-liliac);
+}
+.preview--peach {
+  --preview-color: var(--c-peach);
+}
+
+.preview--active .Q_preview__blob {
+  transform: scale(1) rotate(0deg);
+}
+.preview--active .Q_preview__emoji {
+  transform: scale(1);
+  animation: spin 8s linear infinite;
+}
+.C_marquee__row:nth-of-type(2) .Q_marquee__item--accent {
+  color: var(--c-cream);
+}

@@ -1,0 +1,9 @@
+.SO_index {
+  background-color: var(--bg);
+  color: var(--main);
+  line-height: 1.5;
+  font-family: 'Manrope', 'PT Root UI', Arial, Helvetica, sans-serif;
+  transition:
+    background-color 0.8s ease-out,
+    color 0.8s ease-out;
+}
